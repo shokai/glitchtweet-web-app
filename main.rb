@@ -19,9 +19,13 @@ get '/auth' do
                                                   :oauth_verifier => params[:oauth_verifier])
   session[:access_token] = @access_token.token
   session[:access_token_secret] = @access_token.secret
-  @user = Twitter.user
-  session[:twitter_icon] = @user.profile_image_url
-  session[:twitter_name] = @user.screen_name
+  begin
+    @user = Twitter.user
+    session[:twitter_icon] = @user.profile_image_url
+    session[:twitter_name] = @user.screen_name
+  rescue => e
+    STDERR.puts e    
+  end
   redirect app_root
 end
 
@@ -32,6 +36,8 @@ end
 get '/logout' do
   session[:access_token] = nil
   session[:access_token_secret] = nil
+  session[:twitter_icon] = nil
+  session[:twitter_name] = nil
   redirect app_root
 end
 
