@@ -32,7 +32,7 @@ var tweet = function(){
     $.post(app_root+'/tweet', post_data, function(res){
         console.log(res);
         if(res.error != null) log('tweet failed.');
-        else log($('<span>').append('success! => ').append($('<a>').attr('href','http://twitter.com/'+res.response.user.screen_name+'/status/'+res.response.id_str).html(res.response.user.screen_name+'/status/'+res.response.id_str).attr('target','_blank')));
+        else log($('<p>').append($('<p>').html('success!')).append($('<p>').html($('<a>').attr('href','http://twitter.com/'+res.response.user.screen_name+'/status/'+res.response.id_str).html(res.response.user.screen_name+'/status/'+res.response.id_str))));
         $('div#tweet').click(tweet).removeClass('button_disable').html('tweet');
     }, 'json');
 };
