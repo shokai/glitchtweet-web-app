@@ -3,7 +3,8 @@ var g = new GlitchText();
 
 $(function(){
     $('div#glitch').click(glitch);
-    $('div#controls').click(tweet).css('visibility', 'hidden');
+    $('div#tweet').live('click', tweet);
+    $('div#controls').css('visibility', 'hidden');
     $('textarea#source').live('click', function(e){
         $('textarea#source').val('').die('click');
     });
@@ -26,7 +27,9 @@ var glitch = function(){
 
 var tweet = function(){
     var post_data = {message : result};
+    $('div#tweet').die('click').addClass('button_disable').html('waiting twitter...');;
     $.post(app_root+'/tweet', post_data, function(res){
         console.log(res);
+        $('div#tweet').live('click',tweet).removeClass('button_disable').html('tweet');
     }, 'json');
 };

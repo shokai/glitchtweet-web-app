@@ -16,6 +16,16 @@
   %body
     %div#content
       %h1 glitchtweet
+      %div#twitter
+        %div#login
+          - unless auth?
+            %a{:href => "#{app_root}/login"} [login twitter]
+          - else
+            %img{:src => session[:twitter_icon]}
+            %a{:href => "http://twitter.com/#{session[:twitter_name]}", :target => '_blank'}
+              @#{session[:twitter_name]}
+            &nbsp;|&nbsp;
+            %a{:href => "#{app_root}/logout"} [logout]
       %div
         %textarea{:id => 'source'}
           ここに書いたテキストがglitchされます
@@ -26,9 +36,4 @@
         %div#count
       %div#controls
         %div.button#tweet tweet
-      %div#twitter
-        %div#login
-          - unless auth?
-            %a{:href => "#{app_root}/login"} login
-          - else
-            %a{:href => "#{app_root}/logout"} logout?
+      %div#log

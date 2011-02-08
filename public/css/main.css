@@ -7,6 +7,11 @@ body {
     color : #000;
 }
 
+a {
+    text-decoration : none;
+    color : #A0A;
+}
+
 #content {
     font-size : 40pt;
     margin : 0px;
@@ -15,7 +20,13 @@ body {
 }
 
 h1 {
-    font-size : 55pt;
+    font-size : 75pt;
+}
+
+div#twitter {
+    font-size : 30pt;
+    text-align : right;
+    margin : 5px 5px 15px 0px;
 }
 
 div.button {
@@ -26,6 +37,11 @@ div.button {
     background : #444;
     color : #FFF;
     border-radius : 30px;
+}
+
+div.button_disable {
+    color : #BBB;
+    background : #777;
 }
 
 textarea {

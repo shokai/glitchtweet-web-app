@@ -19,6 +19,9 @@ get '/auth' do
                                                   :oauth_verifier => params[:oauth_verifier])
   session[:access_token] = @access_token.token
   session[:access_token_secret] = @access_token.secret
+  @user = Twitter.user
+  session[:twitter_icon] = @user.profile_image_url
+  session[:twitter_name] = @user.screen_name
   redirect app_root
 end
 
