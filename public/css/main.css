@@ -8,27 +8,24 @@ body {
 }
 
 #content {
-    font-size : 20pt;
+    font-size : 40pt;
     margin : 0px;
     padding : 0px;
     width : 100%;
 }
 
 h1 {
-    font-size : 25pt;
+    font-size : 55pt;
 }
 
 div.button {
-    font-size : 35pt;
-    width : 97%;
-    padding : 3px;
+    font-size : 55pt;
+    width : 100%;
+    padding : 0px;
+    margin : 10px 2px 10px 2px;
     background : #444;
     color : #FFF;
     border-radius : 30px;
-    margin-top : 10px;
-    margin-bottom : 10px;
-    margin-left : 2px;
-    margin-right : 2px;
 }
 
 textarea {
@@ -40,6 +37,6 @@ textarea {
 
 div#count {
     text-align : right;
-    margin-right : 10px;
-    font-size : 18pt;
+    margin-right : 30px;
+    font-size : 35pt;
 }
