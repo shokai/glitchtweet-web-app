@@ -6,6 +6,8 @@ require 'sinatra/reloader'
 require 'json'
 require 'yaml'
 require 'kconv'
+require 'oauth'
+require 'twitter'
 
 begin
   @@conf = YAML::load open(File.dirname(__FILE__)+'/config.yaml').read
