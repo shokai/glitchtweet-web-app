@@ -24,3 +24,9 @@
         %div#count
       %div#controls
         %div.button#tweet tweet
+      %div#twitter
+        %div#login
+          - unless auth?
+            %a{:href => "#{app_root}/login"} login
+          - else
+            %a{:href => "#{app_root}/logout"} logout?
