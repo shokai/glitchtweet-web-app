@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
-
 def auth?
   return true if session[:access_token] and session[:access_token_secret]
   return false
