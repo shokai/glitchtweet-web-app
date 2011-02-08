@@ -51,7 +51,7 @@ textarea {
     padding : 0px;
 }
 
-div#count {
+div#count, div#log {
     text-align : right;
     margin-right : 30px;
     font-size : 35pt;
