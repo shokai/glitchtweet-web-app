@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require 'bundler'
 require 'sinatra/static_assets'
 require 'sinatra/content_for'
@@ -36,5 +37,5 @@ def auth_uri
 end
 
 def remove_twitter_cmd(str)
-  str.gsub(/^d/i,'')
+  str.gsub(/^d[ 　\t]/i,'')
 end

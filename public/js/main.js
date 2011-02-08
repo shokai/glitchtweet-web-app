@@ -25,5 +25,8 @@ var glitch = function(){
 };
 
 var tweet = function(){
-    window.open('http://twitter.com/home?status='+result, 'twitter');
+    var post_data = {message : result};
+    $.post(app_root+'/tweet', post_data, function(res){
+        console.log(res);
+    }, 'json');
 };

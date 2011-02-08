@@ -37,14 +37,18 @@ post '/tweet' do
   if !message or message.to_s.size < 1
     @mes = {:error => 'message is null'}.to_json
   else
-    Twitter.configure do |config|
-      config.consumer_key = @@conf['twitter_key']
-      config.consumer_secret = @@conf['twitter_secret']
-      config.oauth_token = session[:access_token]
-      config.oauth_token_secret = session[:access_token_secret]
+    begin
+      Twitter.configure do |config|
+        config.consumer_key = @@conf['twitter_key']
+        config.consumer_secret = @@conf['twitter_secret']
+        config.oauth_token = session[:access_token]
+        config.oauth_token_secret = session[:access_token_secret]
+      end
+      res = Twitter.update remove_twitter_cmd(message)
+      @mes = {:message => message, :response => res}.to_json
+    rescue => e
+      STDERR.puts e
+      @mes = {:error => 'tweet failed', :message => message}.to_json
     end
-    res = Twitter.update remove_twitter_cmd(message)
-    @mes = {:message => message, :response => res}.to_json
   end
-  
 end
