@@ -1,8 +1,10 @@
 var result = '';
 var g = new GlitchText();
 var no_glitch = /(https?\:[\w\.\~\-\/\?\&\+\=\:\@\%\;\#\%]+|[#@][A-Za-z0-9_]+)/;
+var source_default = '';
 
 $(function(){
+    source_default = $('textarea#source').val();
     if(source = $.cookie('source')){
         $('textarea#source').val($.cookie('source'));
         $.cookie('source', null);
@@ -58,7 +60,8 @@ var tweet = function(){
 };
 
 var login_twitter = function(){
-    $.cookie('source', $('textarea#source').val());
+    var s = $('textarea#source').val();
+    if(s != source_default) $.cookie('source', s);
     location.href = app_root+'/login';
 };
 
