@@ -14,7 +14,10 @@ $(function(){
     }
     $('div#glitch').click(glitch);
     if(auth) $('div#tweet').click(tweet);
-    else $('div#tweet').html('login twitter').click(login_twitter);
+    else{
+        $('div#tweet').html('login twitter').click(login_twitter);
+        $('div#login').click(login_twitter);
+    }
     $('div#controls').css('visibility', 'hidden');
 });
 

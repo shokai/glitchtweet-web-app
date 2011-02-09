@@ -21,7 +21,7 @@
       %div#twitter
         %div#login
           - unless auth?
-            %a{:href => "#{app_root}/login"} [login twitter]
+            %a [login twitter]
           - else
             %img{:src => session[:twitter_icon]}
             %a{:href => "http://twitter.com/#{session[:twitter_name]}"}
