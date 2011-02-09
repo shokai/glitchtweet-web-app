@@ -1,2 +1,2 @@
-twitter_key : 'token'
-twitter_secret : 'secret'
+twitter_key : 'api-consumer-key'
+twitter_secret : 'api-consumer-secret'
