@@ -35,7 +35,15 @@ get '/auth' do
 end
 
 get '/login' do
-  redirect auth_uri
+  begin
+    request_token = consumer.get_request_token(:oauth_callback => "#{app_root}/auth")
+    session[:request_token] = request_token.token
+    session[:request_token_secret] = request_token.secret
+    redirect request_token.authorize_url
+  rescue => e
+    STDERR.puts e
+    redirect app_root
+  end
 end
 
 get '/logout' do

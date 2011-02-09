@@ -29,13 +29,6 @@ def consumer
                       :site => "http://twitter.com")
 end
 
-def auth_uri
-  request_token = consumer.get_request_token(:oauth_callback => "#{app_root}/auth")
-  session[:request_token] = request_token.token
-  session[:request_token_secret] = request_token.secret
-  request_token.authorize_url
-end
-
 def remove_twitter_cmd(str)
   str.gsub(/^d[ 　\t]/i,'')
 end
