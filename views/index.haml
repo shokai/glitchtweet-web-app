@@ -7,11 +7,13 @@
     %link{:rel => 'stylesheet', :href => "#{app_root}/css/reset-3.1.1.css", :type => 'text/css'}
     %link{:rel => 'stylesheet', :href => "#{app_root}/css/main.css", :type => 'text/css'}
     %script{:type => 'text/javascript', :src => "#{app_root}/js/jquery.js"}
+    %script{:type => 'text/javascript', :src => "#{app_root}/js/jquery.cookie.js"}
     %script{:type => 'text/javascript', :src => "#{app_root}/js/tiny_segmenter-0.1.js"}
     %script{:type => 'text/javascript', :src => "#{app_root}/js/glitchtext.js"}
     %script{:type => 'text/javascript', :src => "#{app_root}/js/main.js"}
     :javascript
       var app_root = "#{app_root}";
+      var auth = #{auth?};
   %body
     %div#content
       %h1 glitchtweet

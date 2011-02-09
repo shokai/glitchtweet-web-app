@@ -2,12 +2,19 @@ var result = '';
 var g = new GlitchText();
 
 $(function(){
+    if(source = $.cookie('source')){
+        $('textarea#source').val($.cookie('source'));
+        $.cookie('source', null);
+    }
+    else{
+        $('textarea#source').click(function(e){
+            $('textarea#source').val('').unbind();
+        });
+    }
     $('div#glitch').click(glitch);
-    $('div#tweet').click(tweet);
+    if(auth) $('div#tweet').click(tweet);
+    else $('div#tweet').html('login twitter').click(login_twitter);
     $('div#controls').css('visibility', 'hidden');
-    $('textarea#source').click(function(e){
-        $('textarea#source').val('').unbind();
-    });
 });
 
 
@@ -35,6 +42,11 @@ var tweet = function(){
         else log($('<p>').append($('<p>').html('success!')).append($('<p>').html($('<a>').attr('href','http://twitter.com/'+res.response.user.screen_name+'/status/'+res.response.id_str).html(res.response.user.screen_name+'/status/'+res.response.id_str))));
         $('div#tweet').click(tweet).removeClass('button_disable').html('tweet');
     }, 'json');
+};
+
+var login_twitter = function(){
+    $.cookie('source', $('textarea#source').val());
+    location.href = app_root+'/login';
 };
 
 var log = function(msg){
