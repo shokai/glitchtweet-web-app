@@ -1,5 +1,6 @@
 var result = '';
 var g = new GlitchText();
+var no_glitch = /(https?\:[\w\.\~\-\/\?\&\+\=\:\@\%\;\#\%]+|@[A-Za-z0-9_]+)/;
 
 $(function(){
     if(source = $.cookie('source')){
@@ -22,10 +23,14 @@ var glitch = function(){
     var source = $('textarea#source').val();
     if(source.length < 1) return;
     result = source;
-    while(true){
-        result = g.random(result);
-        if(Math.random() > 0.6) break;
-    };
+    result = result.split(no_glitch).map(function(s){
+        if(s.match(no_glitch)) return s;
+        while(true){
+            s = g.random(s);
+            if(Math.random() > 0.6) break;
+        };
+        return s;
+    }).join(' ');
     if(result.length > 140) result = result.slice(0,140);
     $('div#result').html($('<p>').html(result));
     $('div#count').html($('<p>').html('['+result.length+']'));
