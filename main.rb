@@ -10,15 +10,15 @@ get '/' do
 end
 
 get '/auth' do
-  request_token = OAuth::RequestToken.new(consumer,
-                                           session[:request_token],
-                                           session[:request_token_secret])
-  access_token = request_token.get_access_token({},
+  begin
+    request_token = OAuth::RequestToken.new(consumer,
+                                            session[:request_token],
+                                            session[:request_token_secret])
+    access_token = request_token.get_access_token({},
                                                   :oauth_token => params[:oauth_token],
                                                   :oauth_verifier => params[:oauth_verifier])
-  session[:access_token] = access_token.token
-  session[:access_token_secret] = access_token.secret
-  begin
+    session[:access_token] = access_token.token
+    session[:access_token_secret] = access_token.secret
     Twitter.configure do |config|
       config.consumer_key = @@conf['twitter_key']
       config.consumer_secret = @@conf['twitter_secret']
@@ -29,7 +29,7 @@ get '/auth' do
     session[:twitter_icon] = user.profile_image_url
     session[:twitter_name] = user.screen_name
   rescue => e
-    STDERR.puts e    
+    STDERR.puts e
   end
   redirect app_root
 end
