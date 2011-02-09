@@ -34,6 +34,7 @@ var glitch = function(){
     if(source.length < 1) return;
     result = source;
     result = result.split(no_glitch).map(function(s){
+        if(s.length < 1) return s;
         if(s.match(no_glitch)) return s;
         while(true){
             s = g.random(s);
