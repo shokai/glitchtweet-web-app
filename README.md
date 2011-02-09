@@ -1,7 +1,7 @@
 GlitchTweet Web App
 ===================
 
-glitched twitter client.
+glitched twitter client. using [glitchtext.js](https://github.com/shokai/js-glitchtext).
 
 
 Install Dependencies
