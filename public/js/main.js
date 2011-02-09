@@ -55,7 +55,12 @@ var tweet = function(){
         console.log(res);
         if(res.error != null) log('tweet failed.');
         else{
-            log($('<p>').append($('<p>').html('success!')).append($('<p>').html($('<a>').attr('href','http://twitter.com/'+res.response.user.screen_name+'/status/'+res.response.id_str).html(res.response.user.screen_name+'/status/'+res.response.id_str))));
+            console.log(res);
+            log($('<p>').
+                append($('<p>').html('success!')).
+                append($('<p>').html($('<a>').attr('href','http://twitter.com/'+res.response.user.screen_name+'/status/'+res.response.id_str).html(res.response.user.screen_name+'/status/'+res.response.id_str))).
+                append($('<p>').html(res.response.text))
+               );
             $('textarea#source').val('');
         }
         $('div#tweet').click(tweet).removeClass('button_disable').html('tweet');
