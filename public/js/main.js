@@ -19,6 +19,11 @@ $(function(){
         $('div#login').click(login_twitter);
     }
     $('div#controls').css('visibility', 'hidden');
+    $('a#info').click(function(){
+        var detail = $('div#detail');
+        if(detail.css('visibility') == 'hidden') detail.css('visibility', 'visible');
+        else detail.css('visibility', 'hidden');
+    });
 });
 
 
