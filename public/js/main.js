@@ -1,6 +1,6 @@
 var result = '';
 var g = new GlitchText();
-var no_glitch = /(https?\:[\w\.\~\-\/\?\&\+\=\:\@\%\;\#\%]+|@[A-Za-z0-9_]+)/;
+var no_glitch = /(https?\:[\w\.\~\-\/\?\&\+\=\:\@\%\;\#\%]+|[#@][A-Za-z0-9_]+)/;
 
 $(function(){
     if(source = $.cookie('source')){
