@@ -32,7 +32,7 @@ var glitch = function(){
         return s;
     }).join(' ');
     if(result.length > 140) result = result.slice(0,140);
-    $('div#result').html($('<p>').html(result));
+    $('div#result').html($('<p>').html(result.htmlEscape()));
     $('div#count').html($('<p>').html('['+result.length+']'));
     $('div#controls').css('visibility','visible');
 };
