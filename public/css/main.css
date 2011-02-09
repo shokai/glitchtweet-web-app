@@ -15,7 +15,7 @@ a {
 #content {
     font-size : 40pt;
     margin : 0px;
-    padding : 0px;
+    padding : 0px 0px 100px 0px;
     width : 100%;
 }
 
@@ -52,6 +52,7 @@ textarea {
 }
 
 div#count, div#log, div#info {
+    margin-top : 50px;
     text-align : right;
     margin-right : 30px;
     font-size : 35pt;
