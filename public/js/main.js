@@ -2,6 +2,7 @@ var result = '';
 var g = new GlitchText();
 var no_glitch = /(https?\:[\w\.\~\-\/\?\&\+\=\:\@\%\;\#\%]+|[#@][A-Za-z0-9_]+)/;
 var source_default = '';
+var shake = new iPhoneShake();
 
 $(function(){
     source_default = $('textarea#source').val();
@@ -26,6 +27,13 @@ $(function(){
         if(detail.css('visibility') == 'hidden') detail.css('visibility', 'visible');
         else detail.css('visibility', 'hidden');
     });
+
+    shake.onShake(function(){
+        var s = $.cookie('last_source');
+        if(s && s.length > 0){
+            $('textarea#source').val(s);
+        };
+    }, {threshold : 16});
 });
 
 
@@ -50,6 +58,7 @@ var glitch = function(){
 
 var tweet = function(){
     log('');
+    $.cookie('last_source', $('textarea#source').val());
     var post_data = {message : result};
     $('div#tweet').unbind().addClass('button_disable').html('waiting twitter...');;
     $.post(app_root+'/tweet', post_data, function(res){
