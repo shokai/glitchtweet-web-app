@@ -62,10 +62,8 @@ var tweet = function(){
     var post_data = {message : result};
     $('div#tweet').unbind().addClass('button_disable').html('waiting twitter...');;
     $.post(app_root+'/tweet', post_data, function(res){
-        console.log(res);
         if(res.error != null) log('tweet failed.');
         else{
-            console.log(res);
             log($('<p>').
                 append($('<p>').html('success!')).
                 append($('<p>').html($('<a>').attr('href','http://twitter.com/'+res.response.user.screen_name+'/status/'+res.response.id_str).html(res.response.user.screen_name+'/status/'+res.response.id_str))).
