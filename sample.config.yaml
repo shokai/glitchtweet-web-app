@@ -1,2 +1,4 @@
 twitter_key : 'api-consumer-key'
 twitter_secret : 'api-consumer-secret'
+session_domain : 'your.apphost.com'
+session_secret : 'kazusuke_umai_change_this_str'
