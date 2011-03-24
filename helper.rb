@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-require 'bundler'
-require 'sinatra/static_assets'
-require 'sinatra/content_for'
 require 'rack'
 require 'sinatra/reloader'
 require 'json'
