@@ -24,7 +24,7 @@ Run
 
     % ruby development.ru
 
-or use Passanger.
+or use Passenger.
 
 
 LICENSE:
