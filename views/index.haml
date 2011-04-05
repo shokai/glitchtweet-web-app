@@ -2,10 +2,10 @@
 %html
   %head
     %title glitchtweet
-    %link{:rel => 'apple-touch-icon', :href => "#{app_root}/img/icon.png"}
-    %link{:rel => 'stylesheet', :href => "#{app_root}/css/fonts-3.1.1.css", :type => 'text/css'}
-    %link{:rel => 'stylesheet', :href => "#{app_root}/css/reset-3.1.1.css", :type => 'text/css'}
     %link{:rel => 'stylesheet', :href => "#{app_root}/css/main.css", :type => 'text/css'}
+    %link{:rel => 'stylesheet', :href => "#{app_root}/css/fonts-3.1.1.css", :type => 'text/css'}
+    %meta{:name => 'viewport', :content => 'width=device-width, user-scalable=no'}
+    %link{:rel => 'apple-touch-icon', :href => "#{app_root}/img/icon.png"}
     %script{:type => 'text/javascript', :src => "#{app_root}/js/jquery.js"}
     %script{:type => 'text/javascript', :src => "#{app_root}/js/jquery.cookie.js"}
     %script{:type => 'text/javascript', :src => "#{app_root}/js/tiny_segmenter-0.1.js"}
@@ -24,7 +24,7 @@
           - unless auth?
             %a [login twitter]
           - else
-            %img{:src => session[:twitter_icon]}
+            %img{:src => session[:twitter_icon], :width => 24, :height => 24}
             %a{:href => "http://twitter.com/#{session[:twitter_name]}"}
               @#{session[:twitter_name]}
             &nbsp;|&nbsp;
