@@ -16,6 +16,10 @@ ul {
     list-style-type: none;
 }
 
+li {
+    margin-bottom : 3px;
+}
+
 #content {
     font-size : 15pt;
     margin : 0px;

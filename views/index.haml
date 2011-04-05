@@ -13,6 +13,7 @@
     %script{:type => 'text/javascript', :src => "#{app_root}/js/iphone-shake-event.js"}
     %script{:type => 'text/javascript', :src => "#{app_root}/js/util.js"}
     %script{:type => 'text/javascript', :src => "#{app_root}/js/main.js"}
+    %script{:type => 'text/javascript', :src => 'http://platform.twitter.com/widgets.js'}
     :javascript
       var app_root = "#{app_root}";
       var auth = #{auth?};
@@ -50,4 +51,10 @@
             %li
               source code : 
               %a{:href => 'https://github.com/shokai/glitchtweet-web-app'} github
+            %li
+              %a{:href => 'http://twitter.com/share', :class => 'twitter-share-button',
+                 'data-url' => 'http://glitchtweet.com', 'data-count' => 'horizontal',
+                 'data-via' => 'shokai'}
+                Tweet
+
 
